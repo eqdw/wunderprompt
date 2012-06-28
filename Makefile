@@ -1,6 +1,6 @@
 all: prompt
 
 prompt: prompt.c components/*.c
-		cc -Wall -O3 prompt.c components/*.c -o prompt
+		cc -Wall -O3 -DZSH prompt.c components/*.c -o prompt
 
 
