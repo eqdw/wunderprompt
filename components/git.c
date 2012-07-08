@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
@@ -184,6 +185,14 @@ int git_dirty_info(char *stats_part) {
   return stats;
 }
 
+// Check if string is hex
+// Modified from here: http://www.programmersheaven.com/mb/CandCPP/357957/357957/verify-if-string-has-valid-hex-values-in-c++/
+bool is_hex(const char *str){
+  char copy_of_param [strlen(str)];
+
+  return (strtok(strcpy(copy_of_param, str), "0123456789ABCDEFabcdef") == NULL);
+}
+
 void get_refname(const char *git_dir, char *refname) {
   FILE *fp;
   char filename[strlen(git_dir)+6];
@@ -200,7 +209,8 @@ void get_refname(const char *git_dir, char *refname) {
     strcpy(filename, git_dir);
   }
 
-  if (strlen(refname) == 40) {
+  // If the refname looks like a SHA1 hash, make it shorter
+  if (strlen(refname) == 40 && is_hex(refname)) {
     refname[8] = 0;
   }
 }
