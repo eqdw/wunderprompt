@@ -7,13 +7,9 @@
 void generate_hostname_color(char *output) {
   char hostname[256];
   gethostname(hostname, 256);
-  if (!strncmp(hostname, "ben", 3)) {
+  if (!strncmp(hostname, "dorter", 5)) { //work
     sprintf(output, "%s", FMT_FG_BLUE);
-  } else if (!strcmp(hostname, "macbookben")) {
-    sprintf(output, "%s", FMT_FG_BLUE);
-  } else if (!strcmp(hostname, "TESTBB-LTOP")) {
-    sprintf(output, "%s", FMT_FG_BLUE);
-  } else if (!strncmp(hostname, "marvin", 6)) {
+  } else if (!strcmp(hostname, "zeltennia")) { //mba
     sprintf(output, "%s", FMT_FG_YELLOW);
   } else {
     sprintf(output, "%s", FMT_FG_RED);
