@@ -7,10 +7,12 @@
 void generate_hostname_color(char *output) {
   char hostname[256];
   gethostname(hostname, 256);
-  if (!strncmp(hostname, "dorter", 5)) { //work
+  if (!strncmp(hostname, "dorter", 7) || !strncmp(hostname, "dorter.local", 13)) { //work
     sprintf(output, "%s", FMT_FG_BLUE);
-  } else if (!strcmp(hostname, "zeltennia")) { //mba
+  } else if (!strncmp(hostname, "zeltennia", 10) || !strncmp(hostname, "zeltennia.local", 16)) { //mba
     sprintf(output, "%s", FMT_FG_YELLOW);
+  } else if (!strncmp(hostname, "li520-138", 10)) { //eqdw.net
+    sprintf(output, "%s", FMT_FG_GREEN);
   } else {
     sprintf(output, "%s", FMT_FG_RED);
   }
