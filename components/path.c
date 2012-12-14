@@ -12,7 +12,7 @@ void generate_hostname_color(char *output) {
   } else if (!strncmp(hostname, "zeltennia", 10) || !strncmp(hostname, "zeltennia.local", 16)) { //mba
     sprintf(output, "%s", FMT_FG_YELLOW);
   } else if (!strncmp(hostname, "li520-138", 10)) { //eqdw.net
-    sprintf(output, "%s", FMT_FG_GREEN);
+    sprintf(output, "%s", FMT_FG_MAGENTA);
   } else {
     sprintf(output, "%s", FMT_FG_RED);
   }
